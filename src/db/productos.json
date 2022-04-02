@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "timestamp": "04/02/2022 12:16:18 AM",
+    "nombre": "Holus",
+    "descripcion": "holus 2 ",
+    "codigo": "data.codigo",
+    "foto": "data.foto",
+    "precio": " data.precio",
+    "stock": "data.stock"
+  },
+  {
+    "id": 2,
+    "timestamp": "04/02/2022 12:16:19 AM",
+    "nombre": "Holus",
+    "descripcion": "holus 2 ",
+    "codigo": "data.codigo",
+    "foto": "data.foto",
+    "precio": " data.precio",
+    "stock": "data.stock"
+  },
+  {
+    "id": 3,
+    "timestamp": "04/02/2022 12:16:20 AM",
+    "nombre": "Holus",
+    "descripcion": "holus 2 ",
+    "codigo": "data.codigo",
+    "foto": "data.foto",
+    "precio": " data.precio",
+    "stock": "data.stock"
+  }
+]
