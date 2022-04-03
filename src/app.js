@@ -11,6 +11,11 @@ app.use(express.json())
 app.use('/api/productos', productRoutes)
 app.use('/api/carrito', cartRoute)
 
-
+app.all('*', (req, res) => {
+    res.status(404).json({
+        error: -1 , 
+        descripcion: `Ruta: ${req.baseUrl} NO IMPLEMENTADA`
+    })
+  });
 
 module.exports = app

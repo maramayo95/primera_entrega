@@ -1,36 +1,45 @@
 const express = require('express')
+const Carrito = require('../api/Carrito')
+const Productos = require('../api/Productos')
 const cartRoute = express.Router()
 
-cartRoute.get('/', (req,res)=> {
+const nuevoContenedorCarrito = new Carrito()
+const nuevoContenedorProducto = new Productos()
+
+cartRoute.get('/:id/productos', async (req,res)=> {
+    const id = req.params.id;
+    const encontrarCarritoCompra = await nuevoContenedorCarrito.encontrarCarrito(id)
+
+    res.status(200).json(encontrarCarritoCompra)
+})
+
+cartRoute.post('/', async (req,res)=> {
+  const carritoNuevo =  await  nuevoContenedorCarrito.crearCarrito()
+    res.status(201).json(carritoNuevo)
+    //POR QUE NO REQUIERE UN BODY ? 
+})
+cartRoute.post('/:id/productos', async (req,res)=> {
+    const id = req.params.id;
+    const producto = await nuevoContenedorProducto.traerProducto(req.body.id)
+    const agregarProducto = await nuevoContenedorCarrito.agregarProductoEnCarrito(id, producto)
+
+    res.status(201).json(agregarProducto)
+
+})
+cartRoute.delete('/:id', async (req,res)=> {
+    // Borrar carrito por id 
+    const id = req.params.id
+    const eliminarCarrito = await nuevoContenedorCarrito.borrarCarrito(id)
+
+    res.status(202).json(eliminarCarrito)
+})
+cartRoute.delete('/:idCarrito/productos/:idProducto', async (req,res)=> {
+    const idCarrito = req.params.idCarrito
+    const idProducto = req.params.idProducto
+
+    const eliminarProducto = await nuevoContenedorCarrito.eliminarProducto(idCarrito, idProducto)
     
-    res.status(200).json({
-        data : 'data',
-        status: '200'
-    })
-})
-cartRoute.get('/', (req,res)=> {
-    res.status(200).json({
-        data : 'data',
-        status: '200'
-    })
-})
-cartRoute.post('/', (req,res)=> {
-    res.status(200).json({
-        data : 'data',
-        status: '200'
-    })
-})
-cartRoute.put('/', (req,res)=> {
-    res.status(200).json({
-        data : 'data',
-        status: '200'
-    })
-})
-cartRoute.delete('/', (req,res)=> {
-    res.status(200).json({
-        data : 'data',
-        status: '200'
-    })
+    res.status(202).json(eliminarProducto)
 })
 
 module.exports = cartRoute
