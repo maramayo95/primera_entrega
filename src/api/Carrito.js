@@ -80,11 +80,12 @@ class Carrito {
             throw new Error(error.message)
         }
     }
-    async deleteProductInCart(idCarrito, idProducto) {
+    async eliminarProductoEnCarrito(idCarrito, idProducto) {
         try{
             const carritoCargado = await this.traerTodosLosCarritos()
-            const cartById = carritoCargado.find(cart => cart.id == parseInt(idCarrito))
+            const cartById = carritoCargado.find(cart => cart.id === parseInt(idCarrito))
             if(cartById){
+                console.log(cartById)
                 const indiceCarrito = carritoCargado.findIndex((cart) => cart.id === parseInt(idCarrito))
                 const deleteI = cartById.productos.findIndex((prod) => prod.id === parseInt(idProducto))
                 if (deleteI != -1 ){

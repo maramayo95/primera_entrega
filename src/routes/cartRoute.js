@@ -37,7 +37,7 @@ cartRoute.delete('/:idCarrito/productos/:idProducto', async (req,res)=> {
     const idCarrito = req.params.idCarrito
     const idProducto = req.params.idProducto
 
-    const eliminarProducto = await nuevoContenedorCarrito.eliminarProducto(idCarrito, idProducto)
+    const eliminarProducto = await nuevoContenedorCarrito.eliminarProductoEnCarrito(idCarrito, idProducto)
     
     res.status(202).json(eliminarProducto)
 })
