@@ -88,7 +88,7 @@ class Carrito {
                 const indiceCarrito = carritoCargado.findIndex((cart) => cart.id === parseInt(idCarrito))
                 const deleteI = cartById.productos.findIndex((prod) => prod.id === parseInt(idProducto))
                 if (deleteI != -1 ){
-                    const borrarData = cartById.productos.splice(deleteI,1) //no uso el borrarData, lo borro?
+                    cartById.productos.splice(deleteI,1) 
                     carritoCargado[indiceCarrito] = cartById
                     await fs.writeFile(this.ruta, JSON.stringify(carritoCargado ,null, 2))
                     return cartById

@@ -12,10 +12,10 @@ app.use('/api/productos', productRoutes)
 app.use('/api/carrito', cartRoute)
 
 app.all('*', (req, res) => {
-    res.status(404).json({
-        error: -1 , 
-        descripcion: `Ruta: ${req.baseUrl} NO IMPLEMENTADA`
-    })
-  });
+  res.status(404).json({
+      error: -2 , 
+      descripcion: `Ruta: ${req.originalUrl} Metodo: ${req.method} no implementada`
+  })
+})
 
 module.exports = app

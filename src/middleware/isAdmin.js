@@ -8,7 +8,7 @@ const isAdmin = rol => {
         } else {
             res.status(403).json({
                 error: -1 , 
-                descripcion: `Ruta: ${req.baseUrl} NO AUTORIZADA , kpa`
+                descripcion: `Ruta: ${req.originalUrl} Metodo: ${req.method} no autorizada`
             })
         }
     }

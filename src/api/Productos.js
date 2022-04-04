@@ -78,7 +78,7 @@ async  traerProductos() {
     try {
       const productosGuardados = await this.traerProductos()
       const actualizarDataProducto = {
-          id: id,
+          id: parseInt(id),
           timestamp: moment().format("L LTS"),
           nombre: data.nombre,
           descripcion: data.descripcion,
