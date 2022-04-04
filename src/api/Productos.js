@@ -28,7 +28,8 @@ async  traerProductos() {
   }
 }
   
-  traerProducto(id) {
+  async traerProducto(id) {
+    const traerP = await this.traerProductos()
     const producto = this.productos.find((prod) => prod.id == id);
 
     return producto;

@@ -16,11 +16,11 @@ cartRoute.get('/:id/productos', async (req,res)=> {
 cartRoute.post('/', async (req,res)=> {
   const carritoNuevo =  await  nuevoContenedorCarrito.crearCarrito()
     res.status(201).json(carritoNuevo)
-    //POR QUE NO REQUIERE UN BODY ? 
 })
 cartRoute.post('/:id/productos', async (req,res)=> {
     const id = req.params.id;
     const producto = await nuevoContenedorProducto.traerProducto(req.body.id)
+    console.log(producto)
     const agregarProducto = await nuevoContenedorCarrito.agregarProductoEnCarrito(id, producto)
 
     res.status(201).json(agregarProducto)

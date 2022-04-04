@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "timestamp": "04/03/2022 9:49:36 PM",
+    "productos": [
+      null,
+      {
+        "id": 2,
+        "timestamp": "04/03/2022 6:38:36 PM",
+        "nombre": "el pepo",
+        "descripcion": "holus 2 ",
+        "codigo": "data.codigo",
+        "foto": "data.foto",
+        "precio": " data.precio",
+        "stock": "data.stock"
+      },
+      {
+        "id": 7,
+        "timestamp": "04/03/2022 9:27:21 PM",
+        "nombre": "palermo el ultimo 9 ",
+        "descripcion": "holus 2 ",
+        "codigo": "data.codigo",
+        "foto": "data.foto",
+        "precio": " data.precio",
+        "stock": "data.stock"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "timestamp": "04/03/2022 9:49:43 PM",
+    "productos": []
+  }
+]

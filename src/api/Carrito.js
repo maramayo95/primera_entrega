@@ -33,27 +33,27 @@ class Carrito {
                 productos: []
             }
             carritoCargado.push(nuevoCarrito)
-            await fs.writeFile(this.route, JSON.stringify(carritoCargado ,null, 2))
+            await fs.writeFile(this.ruta, JSON.stringify(carritoCargado ,null, 2))
             return nuevoCarrito
         }catch(error){
             console.log("Error " + error)
         }
     }
     async borrarCarrito(id){
-        try {
+        // try {
             const carritoCargado = await this.traerTodosLosCarritos()
-            const borradoI = carritoCargado.findIndex((cart) => cart.id === parseInt(this.id))
+            const borradoI = carritoCargado.findIndex((cart) => cart.id === parseInt(id))
 
             if (borradoI === -1 ){
                 return -1
             } else{
                 const borrarCarritos = carritoCargado.splice(borradoI,1)
-                await fs.writeFile(this.route, JSON.stringify(carritoCargado ,null, 2))
+                await fs.writeFile(this.ruta, JSON.stringify(carritoCargado ,null, 2))
                 return borrarCarritos
             }
-        }catch (error) {
-            console.log("Error " + error)
-        } 
+        // }catch (error) {
+        //     console.log("Error " + error)
+        // } 
     }
     async encontrarCarrito(id) {
         try {
@@ -69,8 +69,8 @@ class Carrito {
             const traerCarritos = await this.traerTodosLosCarritos()
             const carritoId = traerCarritos.find(cart => cart.id == parseInt(id))
             if (carritoId) {
-                carritoId.producto.push(producto)
-                await fs.writeFile(this.route, JSON.stringify(traerCarritos ,null, 2))
+                carritoId.productos.push(producto)
+                await fs.writeFile(this.ruta, JSON.stringify(traerCarritos ,null, 2))
                 return carritoId
             }else {
                 throw new Error("No se encontró el carrito")
